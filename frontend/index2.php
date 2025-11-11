@@ -3,6 +3,11 @@ session_start();
 include 'partials/header.php';
 include '../config/connection.php';
 
+// Pastikan koneksi aktif
+if (!$conn) {
+  die("Koneksi database gagal: " . mysqli_connect_error());
+}
+
 // Ambil keyword pencarian (berdasarkan NIK)
 $keyword = isset($_GET['search']) ? trim($_GET['search']) : '';
 
@@ -16,6 +21,11 @@ if ($keyword !== '') {
 } else {
   $q = mysqli_query($conn, "SELECT * FROM jamaah ORDER BY created_at DESC");
 }
+
+// Cek jika query gagal
+if (!$q) {
+  die("Query gagal: " . mysqli_error($conn));
+}
 ?>
 
 <body class="jamaah-page">
@@ -24,22 +34,25 @@ if ($keyword !== '') {
 
 <main class="main">
 
-  <!-- ✅ Hero Section (disamakan dengan index1.php) -->
+  <!-- ✅ Hero Section -->
   <section id="hero" class="hero section dark-background">
     <div class="container py-5">
       <div class="row gy-5 align-items-center">
         <div class="col-lg-6 order-lg-last hero-img" data-aos="zoom-out" data-aos-delay="100">
-          <img src="../storages/gambar1-removebg-preview.png" class="img-fluid mx-auto d-block" alt="Haji Umroh Travel" style="max-height: 500px;">
+          <img src="../storages/gambar1-removebg-preview.png" 
+               class="img-fluid mx-auto d-block" 
+               alt="Haji Umroh Travel" 
+               style="max-height: 500px;">
         </div>
         <div class="col-lg-6" data-aos="fade-in">
-          <h1 class="display-3 fw-bold mb-4">Perjalanan Suci Bersama Kami</h1>
-          <p class="lead mb-4 fs-5">Kami melayani paket Haji & Umroh terpercaya dengan fasilitas terbaik dan pembimbing berpengalaman.</p>
+          <h1 class="display-4 fw-bold mb-4">Perjalanan Suci Bersama Kami</h1>
+          <p class="lead mb-4">Kami melayani paket Haji & Umroh terpercaya dengan fasilitas terbaik dan pembimbing berpengalaman.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Data Jamaah Section -->
+  <!-- ✅ Data Jamaah Section -->
   <section id="data-jamaah" class="section py-5">
     <div class="container">
       <h1 class="display-5 fw-bold text-center mb-5 text-gold">Data Jamaah</h1>
@@ -68,9 +81,6 @@ if ($keyword !== '') {
                   <p class="mb-1"><strong>NIK:</strong> <?= htmlspecialchars($d['nik']) ?></p>
                   <p class="mb-1"><strong>Telepon:</strong> <?= htmlspecialchars($d['phone']) ?></p>
                   <p class="mb-2"><strong>Alamat:</strong> <?= htmlspecialchars($d['alamat']) ?></p>
-                  <a href="detail-jamaah.php?id=<?= $d['id'] ?>" class="btn btn-outline-secondary rounded-pill mt-3">
-                    <i class="bi bi-eye"></i> Lihat Detail
-                  </a>
                 </div>
               </div>
             </div>
@@ -88,7 +98,13 @@ if ($keyword !== '') {
 
 <?php include 'partials/footer.php'; ?>
 
-<!-- CSS -->
+<!-- ✅ Tambahkan AOS (jika belum di header.php) -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+</script>
+
+<!-- ✅ CSS -->
 <style>
 body.jamaah-page {
   font-family: 'Poppins', sans-serif;
@@ -97,33 +113,45 @@ body.jamaah-page {
   padding-top: 90px;
 }
 
-/* ✅ Hero section disamakan dengan index1.php */
+/* HERO SECTION */
 .hero {
-  min-height: 70vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  background: linear-gradient(180deg, #0a42c4, #0f54e0);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  color: #fff;
+  text-align: left;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  color: #f3f3f3ff;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
 }
 
 .hero p {
   font-size: 1.1rem;
-  color: #f3f3f3ff;
+  color: #f1f1f1;
 }
 
-/* Tombol dan kartu tetap seperti sebelumnya */
+.hero img {
+  max-height: 450px;
+  display: block;
+  margin: auto;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+}
+
+/* TEKS EMAS */
 .text-gold {
   background: linear-gradient(90deg, #c19a33, #e4c36f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* TOMBOL */
 .btn-gold {
   background: linear-gradient(90deg, #c19a33, #e4c36f);
   color: #fff;
@@ -138,6 +166,7 @@ body.jamaah-page {
   box-shadow: 0 6px 15px rgba(193,154,51,0.3);
 }
 
+/* KARTU JAMAAH */
 .jamaah-card {
   background: #fff;
   transition: all 0.3s ease;

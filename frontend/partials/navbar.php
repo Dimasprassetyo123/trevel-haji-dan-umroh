@@ -184,6 +184,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <a href="#"><span>Data</span> <i class="bi bi-chevron-down"></i></a>
         <ul class="dropdown-menu">
           <li><a href="index2.php">Data Jamaah</a></li>
+          <li><a href="pembayaran.php">Data Pembayaran</a></li>
           <li><a href="../backend/pages/pemberangkatan/index.php">Data Pemberangkatan</a></li>
         </ul>
       </li>

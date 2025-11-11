@@ -38,7 +38,6 @@ $result = mysqli_query($conn, $query);
                                 <th width="15%">Jamaah</th>
                                 <th width="15%">Jumlah</th>
                                 <th width="10%">Metode</th>
-                                <th width="15%">Referensi</th>
                                 <th width="10%">Status</th>
                                 <th width="15%">Tanggal</th>
                                 <th width="15%">Aksi</th>
@@ -55,7 +54,6 @@ $result = mysqli_query($conn, $query);
                                         <td><?= htmlspecialchars($p['nama_jamaah']); ?></td>
                                         <td><strong>Rp <?= number_format($p['amount'], 0, ',', '.'); ?></strong></td>
                                         <td><?= ucfirst(htmlspecialchars($p['method'])); ?></td>
-                                        <td><?= htmlspecialchars($p['reference']); ?></td>
                                         <td>
                                             <?php if ($p['status'] == 'pending'): ?>
                                                 <span class="badge bg-warning text-dark px-3 py-2">Pending</span>
