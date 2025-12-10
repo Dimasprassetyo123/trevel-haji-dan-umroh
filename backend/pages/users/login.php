@@ -1,11 +1,12 @@
 <?php
 session_start();
 
-// Jika sudah login, langsung ke dashboard
-if (isset($_SESSION['user_id'])) {
-  header("Location: ../../pages/dashbord/index.php");
+// Cek kalau sudah login
+if (isset($_SESSION['admin_logged_in'])) {
+  header("Location: ../../pages/dashboard/index.php");
   exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="id">

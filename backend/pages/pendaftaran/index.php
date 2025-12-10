@@ -29,9 +29,9 @@ $q = mysqli_query($conn, "
                 <h4 class="fw-bold text-primary mb-0">
                     📋 Data Pendaftaran Haji / Umroh
                 </h4>
-                <a href="create.php" class="btn btn-primary">
+                <!-- <a href="create.php" class="btn btn-primary">
                     <i class="fa fa-plus me-1"></i> Tambah Pendaftaran
-                </a>
+                </a> -->
             </div>
         </div>
 

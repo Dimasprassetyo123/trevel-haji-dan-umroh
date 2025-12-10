@@ -1,5 +1,21 @@
 <?php
 session_start();
+// if (!isset($_SESSION['logged_in'])) {
+//     echo "<script>
+//         alert('Anda belum login');
+//         window.location.href='../users/login.php';
+//     </script>";
+//     exit();
+// }
+// FIX: cegah undefined array key
+if (!isset($_SESSION['role_name'])) {
+    $_SESSION['role_name'] = 'user'; // default
+}
+
+if (!isset($_SESSION['full_name'])) {
+    $_SESSION['full_name'] = 'Pengguna'; // default
+}
+
 include '../../../config/connection.php';
 include '../../partials/header.php';
 include '../../partials/navbar.php';
@@ -34,8 +50,10 @@ if ($_SESSION['role_name'] === 'admin') {
         <!-- Header -->
         <div class="d-flex justify-content-between align-items-center mb-4 pt-3">
             <div>
-                <h2 class="mb-1 fw-bold"><i class="fas fa-tachometer-alt me-2 text-primary"></i>Dashboard <?= ucfirst($_SESSION['role_name']) ?></h2>
-                <p class="text-muted mb-0"><i class="fas fa-user me-1"></i> Selamat datang, <?= $_SESSION['full_name'] ?>!</p>
+                <h2 class="mb-1 fw-bold"><i class="fas fa-tachometer-alt me-2 text-primary"></i>Dashboard <?= ucfirst($_SESSION['role_name'] ?? 'User') ?>
+                </h2>
+                <p class="text-muted mb-0"><i class="fas fa-user me-1"></i> Selamat datang, <?= htmlspecialchars($_SESSION['full_name'] ?? 'Pengguna') ?>
+                    !</p>
             </div>
             <div class="text-end">
                 <span class="badge bg-primary-subtle text-primary p-2">
@@ -536,7 +554,8 @@ if ($_SESSION['role_name'] === 'admin') {
     }
 
     /* Ikon styling */
-    .fas, .fab {
+    .fas,
+    .fab {
         transition: transform 0.2s ease;
     }
 

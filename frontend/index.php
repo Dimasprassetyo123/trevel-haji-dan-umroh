@@ -3,56 +3,71 @@ include 'partials/header.php';
 ?>
 
 <style>
-/* Minimal Custom Enhancements - Bootstrap First */
-.hero.section {
-  min-height: 90vh;
-}
+  /* Minimal Custom Enhancements - Bootstrap First */
+  .hero.section {
+    min-height: 90vh;
+  }
 
-.hero h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-}
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
 
-.hero-img img {
-  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.15));
-  animation: float 6s ease-in-out infinite;
-}
+  .hero-img img {
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+    animation: float 6s ease-in-out infinite;
+  }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
+  @keyframes float {
 
-.btn-get-started, .btn-watch-video {
-  transition: all 0.3s ease;
-}
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
 
-.btn-get-started:hover {
-  transform: translateY(-3px);
-}
+    50% {
+      transform: translateY(-20px);
+    }
+  }
 
-.about-img-wrapper:hover,
-.features-item:hover,
-.service-item:hover,
-.card-item:hover {
-  transform: translateY(-5px);
-}
+  .btn-get-started,
+  .btn-watch-video {
+    transition: all 0.3s ease;
+  }
 
-.pulsating-play-btn {
-  animation: pulse 2s infinite;
-}
+  .btn-get-started:hover {
+    transform: translateY(-3px);
+  }
 
-@keyframes pulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.1); }
-}
+  .about-img-wrapper:hover,
+  .features-item:hover,
+  .service-item:hover,
+  .card-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .pulsating-play-btn {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
 </style>
 
 <body class="index-page">
 
-<?php
-include 'partials/navbar.php';
-?>
+  <?php
+  include 'partials/navbar.php';
+  ?>
 
   <main class="main">
 
@@ -68,7 +83,7 @@ include 'partials/navbar.php';
             <p class="lead mb-4 fs-5">Kami melayani paket Haji & Umroh terpercaya dengan fasilitas terbaik dan pembimbing berpengalaman.</p>
             <div class="d-flex flex-wrap gap-3">
               <a href="index1.php" class="btn btn-primary btn-lg rounded-pill px-4 shadow btn-get-started">Lihat Paket Kami</a>
-              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn btn-outline-light btn-lg rounded-pill px-4 btn-watch-video d-flex align-items-center gap-2">
+              <a href="https://youtu.be/1r_baDyfVuk?si=cGswho4-Xp-gSolT" class="glightbox btn btn-outline-light btn-lg rounded-pill px-4 btn-watch-video d-flex align-items-center gap-2">
                 <i class="bi bi-play-circle fs-4"></i><span>Tonton Video</span>
               </a>
             </div>
@@ -84,7 +99,7 @@ include 'partials/navbar.php';
           <div class="col-lg-6 order-lg-last" data-aos="fade-up" data-aos-delay="200">
             <div class="position-relative about-img-wrapper rounded shadow-lg overflow-hidden transition">
               <img src="../storages/gambar2-removebg-preview.png" class="img-fluid rounded" alt="Tentang Travel Kami" style="max-height: 500px; width: 100%; object-fit: cover;">
-              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn position-absolute top-50 start-50 translate-middle bg-white rounded-circle d-flex align-items-center justify-content-center shadow" style="width: 80px; height: 80px;">
+              <a href="https://youtu.be/1OyeJoXfYEI?si=OoJFkkQZzuG_-P63" class="glightbox pulsating-play-btn position-absolute top-50 start-50 translate-middle bg-white rounded-circle d-flex align-items-center justify-content-center shadow" style="width: 80px; height: 80px;">
                 <i class="bi bi-play-fill text-primary" style="font-size: 2rem;"></i>
               </a>
             </div>
@@ -97,7 +112,7 @@ include 'partials/navbar.php';
               Dengan pelayanan profesional, pembimbing berilmu, serta fasilitas nyaman, kami siap mendampingi ibadah Anda menjadi
               lebih tenang dan bermakna.
             </p>
-            
+
             <div class="d-flex gap-3 mb-4 p-4 bg-light rounded-3 border-start border-primary border-5 shadow-sm transition">
               <i class="bi bi-diagram-3 text-primary" style="font-size: 2.5rem;"></i>
               <div>
@@ -129,7 +144,7 @@ include 'partials/navbar.php';
     <!-- Features Section -->
     <section id="features" class="features section bg-light">
       <div class="container py-5">
-        
+
         <div class="row gy-5 align-items-center mb-5 p-5 bg-white rounded-4 shadow features-item transition" data-aos="fade-up">
           <div class="col-md-6 text-center" data-aos="zoom-out" data-aos-delay="100">
             <img src="../storages/vecteezy_mecca-travel-logo-vector-design_18735143.svg" class="img-fluid" alt="Paket Umroh" style="max-height: 400px;">
@@ -178,7 +193,7 @@ include 'partials/navbar.php';
     <!-- Services Section -->
     <section id="services" class="services section">
       <div class="container py-5">
-        
+
         <div class="text-center mb-5" data-aos="fade-up">
           <h2 class="display-4 fw-bold mb-3">Layanan Kami</h2>
           <p class="lead text-muted">Kami hadir untuk memberikan pelayanan terbaik dalam setiap perjalanan ibadah Anda.</p>
@@ -264,7 +279,7 @@ include 'partials/navbar.php';
     <!-- Why Us Section -->
     <section id="why-us" class="why-us section dark-background">
       <div class="container py-5">
-        
+
         <div class="text-center mb-5" data-aos="fade-up">
           <h2 class="display-4 fw-bold mb-3">Mengapa Memilih Kami</h2>
           <p class="lead">Kepercayaan dan kenyamanan jamaah adalah prioritas utama kami.</p>
@@ -278,7 +293,7 @@ include 'partials/navbar.php';
               <p class="text-white-50 fs-5">Terdaftar resmi di Kemenag RI dan memiliki izin operasional lengkap.</p>
             </div>
           </div>
-          
+
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="card-item card h-100 bg-white bg-opacity-10 border-0 backdrop-blur p-5 rounded-4 transition">
               <span class="display-1 fw-bold text-white opacity-25 mb-3 d-block">02</span>
@@ -286,7 +301,7 @@ include 'partials/navbar.php';
               <p class="text-white-50 fs-5">Hotel dekat Masjidil Haram & Nabawi, transportasi nyaman, dan menu makanan berkualitas.</p>
             </div>
           </div>
-          
+
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
             <div class="card-item card h-100 bg-white bg-opacity-10 border-0 backdrop-blur p-5 rounded-4 transition">
               <span class="display-1 fw-bold text-white opacity-25 mb-3 d-block">03</span>
@@ -295,7 +310,7 @@ include 'partials/navbar.php';
             </div>
           </div>
         </div>
-        
+
       </div>
     </section><!-- /Why Us Section -->
 
@@ -346,9 +361,9 @@ include 'partials/navbar.php';
 
   </main>
 
-<?php
-include 'partials/footer.php';
-?>
+  <?php
+  include 'partials/footer.php';
+  ?>
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
@@ -358,8 +373,9 @@ include 'partials/footer.php';
   <!-- Preloader -->
   <div id="preloader"></div>
 
-<?php
-include 'partials/script.php';
-?>
+  <?php
+  include 'partials/script.php';
+  ?>
 </body>
+
 </html>
